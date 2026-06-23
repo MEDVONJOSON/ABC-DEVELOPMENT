@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    @apply text-slate-800 antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand-800 text-white font-semibold hover:bg-brand-900 transition-colors shadow-soft;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-brand-800 font-semibold hover:bg-brand-50 transition-colors border border-brand-100;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-accent-600 text-white font-semibold hover:bg-accent-700 transition-colors;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-brand-800 font-semibold hover:bg-brand-50 transition-colors;
+  }
+  .container-page {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-16 md:py-24;
+  }
+  .eyebrow {
+    @apply inline-block text-sm font-semibold uppercase tracking-wider text-brand-700;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-slate-100 overflow-hidden;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium;
+  }
+}
+
+/* Custom utilities */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #2E7D32 0%, #1565C0 100%);
+}
+.bg-gradient-brand-soft {
+  background: linear-gradient(135deg, #E8F5E9 0%, #E3F2FD 100%);
+}
+.text-gradient {
+  background: linear-gradient(135deg, #2E7D32 0%, #1565C0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Multi-item slider variables */
+.slider-container {
+  --slide-shift: 100%;
+}
+.slider-partners {
+  --slide-shift: 50%;
+}
+@media (min-width: 768px) {
+  .slider-partners {
+    --slide-shift: 33.333333%;
+  }
+  .slider-achievements {
+    --slide-shift: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .slider-partners {
+    --slide-shift: 16.666667%;
+  }
+  .slider-achievements {
+    --slide-shift: 25%;
+  }
+}

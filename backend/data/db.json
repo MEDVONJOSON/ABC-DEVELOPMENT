@@ -1,0 +1,185 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "slug": "quality-education-rural-children",
+      "title": "Quality Education for Rural Children",
+      "category": "education",
+      "summary": "Improving access to quality education for 10,000+ rural children through teacher training, infrastructure development, and community engagement.",
+      "location": "Bo, Kenema, Kono Districts",
+      "districts": [
+        "Bo",
+        "Kenema",
+        "Kono"
+      ],
+      "image": "/images/featured.png",
+      "beneficiaries": 10000,
+      "duration": "2020 – Present",
+      "budget": "$2.4M",
+      "partners": [
+        "UNICEF Sierra Leone",
+        "Ministry of Education Sierra Leone"
+      ],
+      "objectives": [
+        "Train 500+ teachers in modern pedagogy",
+        "Build and renovate 25 schools in underserved districts",
+        "Provide learning materials to 10,000+ children",
+        "Improve literacy rates by 40% and girls' enrollment by 60%"
+      ],
+      "story": "Before the program reached Bo district, fewer than 30% of children in the most remote villages completed primary school. Today, school attendance is near universal and girls now outnumber boys in our partner schools."
+    },
+    {
+      "id": 2,
+      "slug": "maternal-child-health",
+      "title": "Maternal & Child Health Initiative",
+      "category": "health",
+      "summary": "Reducing maternal and child mortality through community health workers, mobile clinics, and health education across rural Sierra Leone.",
+      "location": "Port Loko, Kambia, Tonkolili Districts",
+      "districts": [
+        "Port Loko",
+        "Kambia",
+        "Tonkolili"
+      ],
+      "image": "/images/featured2.png",
+      "beneficiaries": 50000,
+      "duration": "2018 – Present",
+      "budget": "$1.8M",
+      "partners": [
+        "UN Women",
+        "Ministry of Health & Sanitation"
+      ],
+      "objectives": [
+        "Train 150 community health workers",
+        "Operate 3 mobile clinics serving 80+ villages",
+        "Provide prenatal care to 5,000+ mothers annually",
+        "Reduce under-5 mortality by 35%"
+      ],
+      "story": "Our network of community health workers is the backbone of this program. Trained locally and equipped with the basics, they bring care to families who would otherwise walk hours for help."
+    },
+    {
+      "id": 3,
+      "slug": "womens-economic-empowerment",
+      "title": "Women's Economic Empowerment Program",
+      "category": "women",
+      "summary": "Empowering 15,000 women with microfinance, vocational training, and business mentorship to achieve economic independence.",
+      "location": "Freetown, Bo, Kenema Districts",
+      "districts": [
+        "Freetown",
+        "Bo",
+        "Kenema"
+      ],
+      "image": "/images/featured3.png",
+      "beneficiaries": 15000,
+      "duration": "2019 – Present",
+      "budget": "$3.1M",
+      "partners": [
+        "African Development Bank",
+        "UN Women"
+      ],
+      "objectives": [
+        "Provide microloans to 5,000+ women entrepreneurs",
+        "Run vocational training in tailoring, agriculture, and tech",
+        "Match every loan recipient with a local business mentor",
+        "Reach 15,000 direct beneficiaries across three districts"
+      ],
+      "story": "Fatmata was one of our first cohort members. She started a small tailoring business with a $75 microloan. Today she employs 5 women and all her children are in school."
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "slug": "community-health-workers-rural-healthcare",
+      "title": "Community Health Workers: The Unsung Heroes of Rural Healthcare",
+      "category": "health",
+      "date": "2024-03-10",
+      "excerpt": "150 trained community health workers are providing life-saving care to 50,000+ people in remote Sierra Leonean villages. Meet the heroes on the frontlines.",
+      "cover": "/images/healthcare-news.png",
+      "author": "ABC Development Team",
+      "body": [
+        "In the remote villages of Port Loko and Kambia, where the nearest clinic is often a two-hour walk away, 150 community health workers are quietly transforming healthcare delivery.",
+        "Trained through our Maternal & Child Health Initiative, these workers provide prenatal care, treat common childhood illnesses, run vaccination drives, and educate families about nutrition and hygiene.",
+        "Mariama, a health worker in Rokupr, walks up to 12 kilometers a day to visit expectant mothers. \"I do this because I have seen too many mothers lose their babies for lack of someone who knows what to do,\" she says.",
+        "In the past year alone, our community health workers have conducted over 18,000 home visits, facilitated 4,200 safe deliveries, and referred 1,100 critical cases to district hospitals."
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "fatmata-success-story-women-empowerment",
+      "title": "Meet Fatmata: From Struggling Mother to Successful Entrepreneur",
+      "category": "women",
+      "date": "2024-02-20",
+      "excerpt": "From earning 25 cents a day to employing 5 women — Fatmata's journey shows what's possible when women get the right support.",
+      "cover": "/images/women-empowerment-news.jpg",
+      "author": "Stories Team",
+      "body": [
+        "Five years ago, Fatmata was struggling to feed her three children. Today she runs a thriving tailoring business in Bo, employs five other women from her village, and sends all her children to school.",
+        "\"I had skills but no capital and no one who believed in me,\" Fatmata says. \"ABC Development gave me a small loan, training, and a mentor who pushed me when I wanted to give up.\"",
+        "Her business started with a single used sewing machine and a $75 microloan. Within two years, she had repaid the loan, expanded to three machines, and was training other women.",
+        "Fatmata is one of more than 15,000 women who have gone through our Women's Economic Empowerment Program. Her story is not unique — it's what becomes possible when the right support meets determination."
+      ]
+    }
+  ],
+  "blogs": [],
+  "resources": [
+    {
+      "id": 1,
+      "type": "Annual Report",
+      "title": "2023 Annual Report",
+      "description": "Our programs, financials, and impact for 2023.",
+      "size": "2.4 MB",
+      "fileUrl": "",
+      "fileName": ""
+    },
+    {
+      "id": 2,
+      "type": "Publication",
+      "title": "Education Program Impact Study",
+      "description": "A multi-year study of literacy and enrollment outcomes in partner schools.",
+      "size": "1.6 MB",
+      "fileUrl": "",
+      "fileName": ""
+    }
+  ],
+  "teamMembers": [
+    {
+      "id": 1,
+      "name": "Mohamed Haddi",
+      "role": "Leadership Team",
+      "email": "Mohamedhaddi@abcdevsl.org",
+      "bio": "",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "name": "Nabieu Conteh",
+      "role": "Programs Team",
+      "email": "Nabieuconteh@abcdevsl.org",
+      "bio": "",
+      "image": ""
+    },
+    {
+      "id": 3,
+      "name": "Bafoday Suma",
+      "role": "Operations Team",
+      "email": "Bafoday.suma@abcsl.org",
+      "bio": "",
+      "image": ""
+    }
+  ],
+  "terms": [
+    {
+      "id": 1,
+      "title": "Terms & Conditions",
+      "content": "By using this website, visitors agree to use ABC Development content, resources, and contact channels respectfully and lawfully.\n\nWebsite content is provided for information about our programs, reports, news, and community development work. Documents may be downloaded for personal, educational, or partner reference.\n\nABC Development may update website content, resources, and these terms as programs and organizational needs change.",
+      "updatedAt": "2026-06-19T22:06:24.652Z"
+    }
+  ],
+  "privacy": [
+    {
+      "id": 1,
+      "title": "Privacy Policy",
+      "content": "ABC Development respects the privacy of visitors, partners, volunteers, and community members who contact us through this website.\n\nInformation submitted through forms or email links is used to respond to inquiries, coordinate programs, manage partnerships, and improve our services.\n\nWe do not sell personal information. Access to submitted information is limited to authorized team members who need it for organizational work.",
+      "updatedAt": "2026-06-19T22:06:24.654Z"
+    }
+  ]
+}
