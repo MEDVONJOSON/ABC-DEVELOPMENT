@@ -59,9 +59,9 @@ export const news = [
     category: 'rural',
     date: '2023-11-08',
     excerpt:
-      'Our rural water program completed 40 new wells this year, cutting water-collection time for thousands of families and reducing waterborne illness.',
+      'Our climate change & water program completed 40 new wells this year, cutting water-collection time for thousands of families and reducing waterborne illness.',
     cover: '/images/hero-landscape.jpg',
-    author: 'Rural Team',
+    author: 'Climate Change Team',
     body: [
       'For the women of Koinadugu, water used to mean a 4-hour walk each way. Today, 40 newly drilled and rehabilitated community wells are bringing clean water closer to home.',
       'The change is visible in everything from school attendance — up 30% in target villages — to women\'s income, as hours once spent collecting water are now spent on farming, trade, and small businesses.',

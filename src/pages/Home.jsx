@@ -613,10 +613,20 @@ export default function Home() {
                       {/* Shimmer sweep on hover */}
                       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
 
-                      {/* Initials avatar */}
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${p.color} flex items-center justify-center mb-3 shadow-md group-hover:scale-110 group-hover:rotate-[6deg] transition-all duration-300`}>
-                        <span className="text-white font-display font-black text-sm tracking-wide">{p.initials}</span>
-                      </div>
+                      {/* Logo or Initials avatar */}
+                      {p.logo ? (
+                        <div className="w-full h-16 flex items-center justify-center mb-3 px-2">
+                          <img
+                            src={p.logo}
+                            alt={p.name}
+                            className="max-h-12 max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      ) : (
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${p.color} flex items-center justify-center mb-3 shadow-md group-hover:scale-110 group-hover:rotate-[6deg] transition-all duration-300`}>
+                          <span className="text-white font-display font-black text-sm tracking-wide">{p.initials}</span>
+                        </div>
+                      )}
 
                       <span className="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors leading-tight">
                         {p.name}
@@ -680,7 +690,7 @@ export default function Home() {
                   {/* Body */}
                   <div className="flex flex-col flex-1 p-6">
                     {/* Category chip */}
-                    {(() => { const cat = [{id:'education',name:'Education'},{id:'health',name:'Healthcare'},{id:'women',name:'Women Empowerment'},{id:'livelihood',name:'Livelihood'},{id:'governance',name:'Governance'},{id:'rural',name:'Rural Dev'}].find(c => c.id === a.category); return cat ? <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-600 mb-3 w-fit capitalize">{cat.name}</span> : null; })()}
+                    {(() => { const cat = [{id:'education',name:'Education'},{id:'health',name:'Healthcare'},{id:'women',name:'Women Empowerment'},{id:'livelihood',name:'Livelihood'},{id:'governance',name:'Governance'},{id:'rural',name:'Climate Change'}].find(c => c.id === a.category); return cat ? <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-600 mb-3 w-fit capitalize">{cat.name}</span> : null; })()}
 
                     <h3 className={`font-display font-bold text-lg text-slate-800 ${style.titleHover} transition-colors leading-snug flex-1`}>
                       {a.title}

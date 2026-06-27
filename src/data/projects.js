@@ -39,8 +39,8 @@ export const categories = [
   },
   {
     id: 'rural',
-    name: 'Rural Development',
-    description: 'Building resilient rural communities',
+    name: 'Climate Change',
+    description: 'ABC-Development addresses the growing threat of climate change by supporting climate-smart agriculture, environmental conservation, and building community resilience through clean water infrastructure and sustainable land management practices.',
     color: 'bg-brand-100 text-brand-700',
     icon: 'Trees',
   },

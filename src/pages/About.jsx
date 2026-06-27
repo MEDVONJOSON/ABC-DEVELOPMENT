@@ -50,7 +50,7 @@ export default function About() {
               A leading NGO transforming lives across Sierra Leone
             </h2>
             <p className="mt-5 text-slate-600 leading-relaxed">
-              ABC Development is a leading NGO in Sierra Leone focused on education, healthcare, women empowerment, livelihoods, governance, and rural community development.
+              ABC Development is a leading NGO in Sierra Leone focused on education, healthcare, women empowerment, livelihoods, governance, and climate change.
             </p>
             <p className="mt-4 text-slate-600 leading-relaxed">
               From clean water infrastructure to governance training, we work alongside rural communities to create lasting change from the ground up.

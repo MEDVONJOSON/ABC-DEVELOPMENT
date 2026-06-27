@@ -18,13 +18,16 @@ export const siteInfo = {
     { label: 'Bafoday Suma', address: 'Bafoday.suma@abcsl.org' },
     { label: 'Project Management', address: 'Pm@abcdevsl.org' },
     { label: 'Finance', address: 'Finance@abcdevsl.org' },
+    { label: 'Field Staff', address: 'Fieldstaff@abcdevsl.org' },
+    { label: 'Maria Maceray', address: 'mariamaceray@abcdevsl.org' },
+    { label: 'Thomasia', address: 'thomasia@abcdevsl.org' },
   ],
-  address: '12 Wilkinson Road, Freetown, Sierra Leone',
-  phone: '+232 76 552797',
-  phones: ['+232 76 552797', '+232 76 767163'],
+  address: '11 Madia Road, Kambia, Sierra Leone',
+  phone: '+232 76 767163',
+  phones: ['+232 76 767163', '+232 76 552797'],
   hours: 'Monday – Friday: 8:00 AM – 5:00 PM',
   social: {
-    facebook: 'https://facebook.com/abcdev',
+    facebook: 'https://www.facebook.com/share/p/1CvBewEUc5/',
     twitter: 'https://twitter.com/abcdev',
     instagram: 'https://instagram.com/abcdev',
     linkedin: 'https://linkedin.com/company/abcdev',
@@ -63,12 +66,12 @@ export const testimonials = [
 ];
 
 export const partners = [
-  { id: 1, name: 'Trocaire', initials: 'TR', color: 'from-rose-500 to-red-600' },
-  { id: 2, name: 'Action Aid', initials: 'AA', color: 'from-orange-500 to-amber-600' },
-  { id: 3, name: 'European Union', initials: 'EU', color: 'from-blue-600 to-indigo-700' },
-  { id: 4, name: 'CARE International', initials: 'CI', color: 'from-teal-500 to-emerald-600' },
+  { id: 1, name: 'Trocaire', initials: 'TR', color: 'from-rose-500 to-red-600', logo: '/images/Trocaire Logo.png' },
+  { id: 2, name: 'Action Aid', initials: 'AA', color: 'from-orange-500 to-amber-600', logo: '/images/actionaid logo.png' },
+  { id: 3, name: 'European Union', initials: 'EU', color: 'from-blue-600 to-indigo-700', logo: '/images/European Union Logo.png' },
+  { id: 4, name: 'CARE International', initials: 'CI', color: 'from-teal-500 to-emerald-600', logo: '/images/CARE_Logo_ (1).png' },
   { id: 5, name: 'UN Women', initials: 'UNW', color: 'from-violet-500 to-purple-600' },
-  { id: 6, name: 'UNICEF', initials: 'UC', color: 'from-sky-500 to-cyan-600' },
+  { id: 6, name: 'UNICEF', initials: 'UC', color: 'from-sky-500 to-cyan-600', logo: '/images/UNICEF LOGO.jpg' },
 ];
 
 export const timeline = [
