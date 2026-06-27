@@ -70,7 +70,7 @@ export const partners = [
   { id: 2, name: 'Action Aid', initials: 'AA', color: 'from-orange-500 to-amber-600', logo: '/images/actionaid logo.png' },
   { id: 3, name: 'European Union', initials: 'EU', color: 'from-blue-600 to-indigo-700', logo: '/images/European Union Logo.png' },
   { id: 4, name: 'CARE International', initials: 'CI', color: 'from-teal-500 to-emerald-600', logo: '/images/CARE_Logo_ (1).png' },
-  { id: 5, name: 'UN Women', initials: 'UNW', color: 'from-violet-500 to-purple-600' },
+  { id: 5, name: 'UN Women', initials: 'UNW', color: 'from-violet-500 to-purple-600', logo: '/images/download.webp' },
   { id: 6, name: 'UNICEF', initials: 'UC', color: 'from-sky-500 to-cyan-600', logo: '/images/UNICEF LOGO.jpg' },
 ];
 
