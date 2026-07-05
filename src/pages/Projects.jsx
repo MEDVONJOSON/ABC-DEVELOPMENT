@@ -47,7 +47,7 @@ export default function Projects() {
       <PageHero
         eyebrow="Our Projects"
         title="Sustainable Development Programs"
-        subtitle="Explore ABC Development's projects in education, healthcare, women empowerment, livelihoods, governance, and climate change across Sierra Leone."
+        subtitle="Explore ABC Development's projects in education, healthcare, livelihoods, governance, and climate change across Sierra Leone."
         image="/images/hero-community.jpg"
       />
 

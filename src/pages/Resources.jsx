@@ -32,13 +32,7 @@ const resourceSeed = [
     description: 'Field manual used by our 150 community health workers.',
     size: '3.2 MB',
   },
-  {
-    id: 5,
-    type: 'Guide',
-    title: "Women's Microfinance Toolkit",
-    description: 'How we structure microloans, mentorship, and business support.',
-    size: '0.9 MB',
-  },
+
   {
     id: 6,
     type: 'Research',

@@ -19,14 +19,7 @@ const categoryStyles = {
     textBrand: 'text-emerald-700 group-hover:text-emerald-800',
     iconColor: 'text-emerald-600'
   },
-  women: {
-    gradient: 'from-fuchsia-500 to-purple-600',
-    cardBorder: 'border-b-fuchsia-500/50 hover:border-fuchsia-500',
-    cardHoverShadow: 'hover:shadow-fuchsia-500/15',
-    badgeBg: 'bg-fuchsia-100 text-purple-800 border border-fuchsia-200/50',
-    textBrand: 'text-purple-700 group-hover:text-purple-800',
-    iconColor: 'text-fuchsia-600'
-  },
+
   livelihood: {
     gradient: 'from-amber-500 to-orange-600',
     cardBorder: 'border-b-amber-500/50 hover:border-amber-500',

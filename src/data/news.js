@@ -18,23 +18,7 @@ export const news = [
       'In the past year alone, our community health workers have conducted over 18,000 home visits, facilitated 4,200 safe deliveries, and referred 1,100 critical cases to district hospitals.',
     ],
   },
-  {
-    id: 2,
-    slug: 'fatmata-success-story-women-empowerment',
-    title: 'Meet Fatmata: From Struggling Mother to Successful Entrepreneur',
-    category: 'women',
-    date: '2024-02-20',
-    excerpt:
-      'From earning 25 cents a day to employing 5 women — Fatmata\'s journey shows what\'s possible when women get the right support.',
-    cover: '/images/women-empowerment-news.jpg',
-    author: 'Stories Team',
-    body: [
-      'Five years ago, Fatmata was struggling to feed her three children. Today she runs a thriving tailoring business in Bo, employs five other women from her village, and sends all her children to school.',
-      '"I had skills but no capital and no one who believed in me," Fatmata says. "ABC Development gave me a small loan, training, and a mentor who pushed me when I wanted to give up."',
-      'Her business started with a single used sewing machine and a $75 microloan. Within two years, she had repaid the loan, expanded to three machines, and was training other women.',
-      'Fatmata is one of more than 15,000 women who have gone through our Women\'s Economic Empowerment Program. Her story is not unique — it\'s what becomes possible when the right support meets determination.',
-    ],
-  },
+
   {
     id: 3,
     slug: 'education-transforming-rural-sierra-leone',

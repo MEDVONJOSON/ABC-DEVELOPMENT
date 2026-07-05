@@ -42,13 +42,7 @@ export const stats = [
 ];
 
 export const testimonials = [
-  {
-    id: 1,
-    quote:
-      'ABC Development changed my life completely. Before the women\'s program, I could barely feed my children. Now I run my own tailoring shop and employ 5 other women from my village. My children are all in school. This is what empowerment looks like.',
-    author: 'Fatmata K.',
-    role: 'Women\'s Program Graduate, Bo District',
-  },
+
   {
     id: 2,
     quote:
@@ -90,11 +84,7 @@ export const timeline = [
     title: 'Healthcare Expansion',
     description: 'Expanded to healthcare during the Ebola crisis response.',
   },
-  {
-    year: 2017,
-    title: 'Women Empowerment Initiative',
-    description: 'Launched Women Empowerment Initiative with microfinance program.',
-  },
+
   {
     year: 2021,
     title: '50,000 Beneficiaries',
@@ -150,13 +140,7 @@ export const goals = [
       'Establish 5 new healthcare outposts in underserved rural areas.',
     icon: 'HeartPulse',
   },
-  {
-    id: 'women-goal',
-    title: 'Women Entrepreneurship',
-    description:
-      'Launch national women entrepreneurship initiative with 1,000 participants.',
-    icon: 'Briefcase',
-  },
+
   {
     id: 'livelihood-goal',
     title: 'Youth Employment',
@@ -179,12 +163,7 @@ export const donationTiers = [
     description: 'Funds a medical outreach camp',
     icon: 'Stethoscope',
   },
-  {
-    id: 'large',
-    amount: 500,
-    description: "Supports a women's business startup",
-    icon: 'Briefcase',
-  },
+
 ];
 
 export const volunteerRoles = [
@@ -218,10 +197,5 @@ export const volunteerRoles = [
     description: 'Help us with our digital presence, content, and online campaigns.',
     icon: 'Globe',
   },
-  {
-    id: 'fund',
-    title: 'Business Seed Fund Mentors',
-    description: 'Mentor women entrepreneurs who received seed funding from our programs.',
-    icon: 'Sprout',
-  },
+
 ];

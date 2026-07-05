@@ -16,13 +16,7 @@ export const categories = [
     color: 'bg-brand-100 text-brand-700',
     icon: 'HeartPulse',
   },
-  {
-    id: 'women',
-    name: 'Women Empowerment',
-    description: 'Economic opportunities and rights for women',
-    color: 'bg-brand-100 text-brand-800',
-    icon: 'Users',
-  },
+
   {
     id: 'livelihood',
     name: 'Peace & Livelihood',
@@ -93,29 +87,7 @@ export const projects = [
     story:
       'Our network of community health workers is the backbone of this program. Trained locally and equipped with the basics, they bring care to families who would otherwise walk hours for help.',
   },
-  {
-    id: 3,
-    slug: 'womens-economic-empowerment',
-    title: "Women's Economic Empowerment Program",
-    category: 'women',
-    summary:
-      'Empowering 15,000 women with microfinance, vocational training, and business mentorship to achieve economic independence.',
-    location: 'Freetown, Bo, Kenema Districts',
-    districts: ['Freetown', 'Bo', 'Kenema'],
-    image: '/images/featured3.png',
-    beneficiaries: 15000,
-    duration: '2019 – Present',
-    budget: '$3.1M',
-    partners: ['African Development Bank', 'UN Women'],
-    objectives: [
-      'Provide microloans to 5,000+ women entrepreneurs',
-      'Run vocational training in tailoring, agriculture, and tech',
-      'Match every loan recipient with a local business mentor',
-      'Reach 15,000 direct beneficiaries across three districts',
-    ],
-    story:
-      'Fatmata was one of our first cohort members. She started a small tailoring business with a $75 microloan. Today she employs 5 women and all her children are in school.',
-  },
+
   {
     id: 4,
     slug: 'youth-livelihoods',

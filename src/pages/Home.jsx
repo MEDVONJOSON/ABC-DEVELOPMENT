@@ -48,15 +48,7 @@ const categoryStyles = {
     iconColor: 'text-emerald-600 group-hover:text-white',
     textBrand: 'text-emerald-700 group-hover:text-emerald-800'
   },
-  women: {
-    gradient: 'from-fuchsia-500 to-purple-600',
-    cardBorder: 'border-b-fuchsia-500/50 hover:border-fuchsia-500',
-    cardHoverShadow: 'hover:shadow-fuchsia-500/15',
-    cardHoverBg: 'hover:bg-fuchsia-50/10',
-    iconContainer: 'bg-fuchsia-50 text-fuchsia-600 border-fuchsia-100 group-hover:from-fuchsia-500 group-hover:to-purple-600 group-hover:text-white',
-    iconColor: 'text-fuchsia-600 group-hover:text-white',
-    textBrand: 'text-purple-700 group-hover:text-purple-800'
-  },
+
   livelihood: {
     gradient: 'from-amber-500 to-orange-600',
     cardBorder: 'border-b-amber-500/50 hover:border-amber-500',
@@ -102,13 +94,7 @@ const heroSlides = [
     title: "ENHANCED\nFOOD SECURITY\n& LIVELIHOOD",
     description: "Provided seed inputs, post-harvest management support, and agronomic training to smallholder farmers—strengthening local food systems and community resilience."
   },
-  {
-    id: 3,
-    image: "/images/hero-community.jpg",
-    eyebrow: "WOMEN EMPOWERMENT",
-    title: "EMPOWERED\n100 WOMEN\nAND GIRLS",
-    description: "Trained and mentored 100 women and girls to actively participate in leadership and governance, equipping them with the confidence and tools to drive change in their communities."
-  }
+
 ];
 
 const missionItems = [
@@ -690,7 +676,7 @@ export default function Home() {
                   {/* Body */}
                   <div className="flex flex-col flex-1 p-6">
                     {/* Category chip */}
-                    {(() => { const cat = [{id:'education',name:'Education'},{id:'health',name:'Healthcare'},{id:'women',name:'Women Empowerment'},{id:'livelihood',name:'Livelihood'},{id:'governance',name:'Governance'},{id:'rural',name:'Climate Change'}].find(c => c.id === a.category); return cat ? <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-600 mb-3 w-fit capitalize">{cat.name}</span> : null; })()}
+                    {(() => { const cat = [{id:'education',name:'Education'},{id:'health',name:'Healthcare'},{id:'livelihood',name:'Livelihood'},{id:'governance',name:'Governance'},{id:'rural',name:'Climate Change'}].find(c => c.id === a.category); return cat ? <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-600 mb-3 w-fit capitalize">{cat.name}</span> : null; })()}
 
                     <h3 className={`font-display font-bold text-lg text-slate-800 ${style.titleHover} transition-colors leading-snug flex-1`}>
                       {a.title}
