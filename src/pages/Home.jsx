@@ -332,8 +332,8 @@ export default function Home() {
         <div className="container-page">
           <SectionHeader
             eyebrow="Our Focus Areas"
-            title="Six sectors, one mission"
-            description="We work across six key sectors to create lasting change in Sierra Leonean communities."
+            title="Five sectors, one mission"
+            description="We work across five key sectors to create lasting change in Sierra Leonean communities."
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((c) => {
