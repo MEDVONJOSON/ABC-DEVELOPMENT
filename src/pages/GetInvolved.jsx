@@ -36,7 +36,7 @@ export default function GetInvolved() {
       `Motivation: ${volunteerForm.motivation}`,
     ].join('%0D%0A');
     const subject = encodeURIComponent(`Volunteer Application – ${volunteerForm.name}`);
-    window.open(`mailto:Info@abcdevsl.org?subject=${subject}&body=${body}`, '_self');
+    window.open(`mailto:info@abcdevelopmentsl.org?subject=${subject}&body=${body}`, '_self');
     setSubmitted((s) => ({ ...s, volunteer: true }));
   };
   const submitPartner = (e) => {

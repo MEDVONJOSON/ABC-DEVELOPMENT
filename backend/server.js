@@ -34,9 +34,9 @@ const resourceSeed = [
 ];
 
 const teamMemberSeed = [
-  { id: 1, name: 'Mohamed Haddi', role: 'Leadership Team', email: 'Mohamedhaddi@abcdevsl.org', bio: '', image: '' },
-  { id: 2, name: 'Nabieu Conteh', role: 'Programs Team', email: 'Nabieuconteh@abcdevsl.org', bio: '', image: '' },
-  { id: 3, name: 'Bafoday Suma', role: 'Operations Team', email: 'Bafoday.suma@abcsl.org', bio: '', image: '' },
+  { id: 1, name: 'Mohamed Haddi', role: 'Leadership Team', email: 'mohamedhaddi@abcdevelopmentsl.org', bio: '', image: '' },
+  { id: 2, name: 'Nabieu Conteh', role: 'Programs Team', email: '', bio: '', image: '' },
+  { id: 3, name: 'Bafoday Suma', role: 'Operations Team', email: '', bio: '', image: '' },
 ];
 
 const termsSeed = [
