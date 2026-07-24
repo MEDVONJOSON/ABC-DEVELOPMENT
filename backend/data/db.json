@@ -119,7 +119,21 @@
       ]
     }
   ],
-  "blogs": [],
+  "blogs": [
+    {
+      "title": "Digital Training For NGOs",
+      "category": "education",
+      "date": "2026-08-01",
+      "author": "ABC Development Team",
+      "excerpt": "Digital Education",
+      "body": [
+        "This Training is basically focusing on imparting digital skills "
+      ],
+      "id": 1784904944717,
+      "slug": "digital-training-for-ngos",
+      "cover": "/uploads/1784904944707-whatsapp-image-2026-05-17-at-9-39-04-pm.jpeg"
+    }
+  ],
   "resources": [
     {
       "id": 1,
