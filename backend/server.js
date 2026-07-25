@@ -7,10 +7,10 @@ import { projects as projectSeed } from '../src/data/projects.js';
 import { news as newsSeed } from '../src/data/news.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataDir = path.join(__dirname, 'data');
-const uploadDir = path.join(__dirname, 'uploads');
+const dataDir = process.env.DATA_DIR || path.join(__dirname, 'data');
+const uploadDir = process.env.UPLOAD_DIR || path.join(__dirname, 'uploads');
 const dbPath = path.join(dataDir, 'db.json');
-const port = Number(process.env.API_PORT || 4174);
+const port = Number(process.env.PORT || process.env.API_PORT || 4174);
 
 const resourceSeed = [
   {
@@ -295,13 +295,16 @@ async function handleUpload(req, res, pathname) {
   }
 
   const extension = path.extname(filename).toLowerCase();
-  const contentType = extension === '.pdf'
-    ? 'application/pdf'
-    : extension === '.doc'
-      ? 'application/msword'
-      : extension === '.docx'
-        ? 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-        : 'application/octet-stream';
+  const contentTypes = {
+    '.pdf': 'application/pdf',
+    '.doc': 'application/msword',
+    '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.webp': 'image/webp',
+  };
+  const contentType = contentTypes[extension] || 'application/octet-stream';
 
   res.writeHead(200, {
     'Content-Type': contentType,
@@ -340,6 +343,6 @@ createServer(async (req, res) => {
   } catch (error) {
     send(res, 500, { error: error.message || 'Server error.' });
   }
-}).listen(port, () => {
+}).listen(port, '0.0.0.0', () => {
   console.log(`ABC Development API running at http://127.0.0.1:${port}`);
 });

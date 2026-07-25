@@ -92,6 +92,25 @@ The forms (donation, volunteer, partner, contact) currently log to the console. 
 - **Email** — send via Resend, Postmark, or a serverless function
 - **Payments** — Stripe Checkout for donations
 
+## Production admin saves
+
+The admin dashboard saves projects, news, blogs, resources, team members, terms, and privacy policy content through the API in `backend/server.js`.
+
+For local development, run both services:
+
+```bash
+npm run backend
+npm run dev
+```
+
+For production, deploy the backend as a Node web service and set this environment variable on the frontend deployment:
+
+```bash
+VITE_API_BASE_URL=https://your-backend-url.example.com
+```
+
+The included `render.yaml` is ready for a Render backend deployment with persistent disk storage for `db.json` and uploaded files. If the frontend is deployed as a static site without `VITE_API_BASE_URL`, admin save/upload buttons will post to `/api/...` on the static frontend domain and will not save.
+
 ## 🌐 Deploying
 
 The site is a static SPA. Easiest options:
