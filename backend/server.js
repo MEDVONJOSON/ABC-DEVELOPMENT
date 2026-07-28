@@ -101,7 +101,10 @@ async function ensureDb() {
       const coll = db.collection(key);
       const count = await coll.countDocuments();
       if (count === 0) {
-        await coll.insertMany(Array.isArray(value) ? value : [value]);
+        const records = Array.isArray(value) ? value : [value];
+        if (records.length > 0) {
+          await coll.insertMany(records);
+        }
       }
     }
     return;
