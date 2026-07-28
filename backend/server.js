@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { MongoClient } from 'mongodb';
 import { projects as projectSeed } from '../src/data/projects.js';
 import { news as newsSeed } from '../src/data/news.js';
 
@@ -11,6 +12,24 @@ const dataDir = process.env.DATA_DIR || path.join(__dirname, 'data');
 const uploadDir = process.env.UPLOAD_DIR || path.join(__dirname, 'uploads');
 const dbPath = path.join(dataDir, 'db.json');
 const port = Number(process.env.PORT || process.env.API_PORT || 4174);
+const mongoUri = process.env.MONGODB_URI || '';
+const mongoDbName = process.env.MONGODB_DBNAME || 'abc-development';
+let mongoClient = null;
+let mongoDb = null;
+
+async function connectMongo() {
+  if (!mongoUri) return null;
+  if (mongoDb) return mongoDb;
+  mongoClient = new MongoClient(mongoUri);
+  await mongoClient.connect();
+  mongoDb = mongoClient.db(mongoDbName);
+  return mongoDb;
+}
+
+function normalizeDbRecord(record) {
+  const { _id, ...rest } = record;
+  return rest;
+}
 
 const resourceSeed = [
   {
@@ -75,12 +94,34 @@ const allowedExtensions = new Set(['.pdf', '.doc', '.docx', '.png', '.jpg', '.jp
 async function ensureDb() {
   await mkdir(dataDir, { recursive: true });
   await mkdir(uploadDir, { recursive: true });
+
+  if (mongoUri) {
+    const db = await connectMongo();
+    for (const [key, value] of Object.entries(defaultDb)) {
+      const coll = db.collection(key);
+      const count = await coll.countDocuments();
+      if (count === 0) {
+        await coll.insertMany(Array.isArray(value) ? value : [value]);
+      }
+    }
+    return;
+  }
+
   if (!existsSync(dbPath)) {
     await writeFile(dbPath, JSON.stringify(defaultDb, null, 2));
   }
 }
 
 async function readDb() {
+  if (mongoUri) {
+    await connectMongo();
+    const db = {};
+    for (const key of collections) {
+      db[key] = (await mongoDb.collection(key).find({}).toArray()).map(normalizeDbRecord);
+    }
+    return db;
+  }
+
   await ensureDb();
   const db = JSON.parse(await readFile(dbPath, 'utf8'));
   let changed = false;
@@ -183,6 +224,17 @@ async function saveUpload(file) {
     throw new Error('Unsupported file type. Upload PDF, Word document, or image files only.');
   }
 
+  const size = `${(file.content.length / 1024 / 1024).toFixed(1)} MB`;
+
+  if (mongoUri) {
+    const dataUrl = `data:${file.contentType};base64,${file.content.toString('base64')}`;
+    return {
+      fileName: file.filename,
+      fileUrl: dataUrl,
+      size,
+    };
+  }
+
   const safeBase = slugify(path.basename(file.filename, extension)) || 'upload';
   const storedName = `${Date.now()}-${safeBase}${extension}`;
   await writeFile(path.join(uploadDir, storedName), file.content);
@@ -190,7 +242,7 @@ async function saveUpload(file) {
   return {
     fileName: file.filename,
     fileUrl: `/uploads/${storedName}`,
-    size: `${(file.content.length / 1024 / 1024).toFixed(1)} MB`,
+    size,
   };
 }
 
@@ -263,8 +315,27 @@ async function handleApi(req, res, pathname) {
     const { fields, file } = await parseRequest(req);
     const upload = await saveUpload(file);
     const record = normalizeRecord(collection, fields, upload);
-    const list = db[collection] || [];
 
+    if (mongoUri) {
+      const coll = (await connectMongo()).collection(collection);
+      if (req.method === 'PUT') {
+        const existing = await coll.findOne({ id: Number(rawId) });
+        if (!existing) {
+          send(res, 404, { error: 'Record not found.' });
+          return;
+        }
+        await coll.updateOne({ id: Number(rawId) }, { $set: { ...record, id: existing.id } });
+        const updated = await coll.findOne({ id: Number(rawId) });
+        send(res, 200, normalizeDbRecord(updated));
+        return;
+      }
+
+      await coll.insertOne(record);
+      send(res, 201, record);
+      return;
+    }
+
+    const list = db[collection] || [];
     db[collection] =
       req.method === 'PUT'
         ? list.map((item) => (String(item.id) === String(rawId) ? { ...item, ...record, id: item.id } : item))
@@ -276,6 +347,13 @@ async function handleApi(req, res, pathname) {
   }
 
   if (req.method === 'DELETE') {
+    if (mongoUri) {
+      const coll = (await connectMongo()).collection(collection);
+      await coll.deleteOne({ id: Number(rawId) });
+      send(res, 200, { ok: true });
+      return;
+    }
+
     db[collection] = (db[collection] || []).filter((item) => String(item.id) !== String(rawId));
     await writeDb(db);
     send(res, 200, { ok: true });

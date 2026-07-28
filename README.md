@@ -121,6 +121,7 @@ The site is a static SPA. Easiest options:
 
 For client-side routing to work in production, configure a rewrite of all routes to `/index.html`:
 - Vercel: auto-handled for SPAs
+- Render: add a rewrite route from `/*` to `/index.html` (already included in `render.yaml`)
 - Netlify: add a `_redirects` file with `/*  /index.html  200`
 - Cloudflare Pages: add a `_redirects` file with the same
 
