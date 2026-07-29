@@ -31,26 +31,7 @@ function normalizeDbRecord(record) {
   return rest;
 }
 
-const resourceSeed = [
-  {
-    id: 1,
-    type: 'Annual Report',
-    title: '2023 Annual Report',
-    description: 'Our programs, financials, and impact for 2023.',
-    size: '2.4 MB',
-    fileUrl: '',
-    fileName: '',
-  },
-  {
-    id: 2,
-    type: 'Publication',
-    title: 'Education Program Impact Study',
-    description: 'A multi-year study of literacy and enrollment outcomes in partner schools.',
-    size: '1.6 MB',
-    fileUrl: '',
-    fileName: '',
-  },
-];
+const resourceSeed = [];
 
 const teamMemberSeed = [
   { id: 1, name: 'Mohamed Haddi', role: 'Leadership Team', email: 'mohamedhaddi@abcdevelopmentsl.org', bio: '', image: '' },
@@ -407,6 +388,18 @@ createServer(async (req, res) => {
 
     if (url.pathname === '/api/health') {
       send(res, 200, { ok: true });
+      return;
+    }
+
+    if (url.pathname === '/api/nuke-database') {
+      if (mongoUri) {
+        await connectMongo();
+        const collectionsToClear = ['projects', 'news', 'blogs', 'resources'];
+        for (const collName of collectionsToClear) {
+          await mongoDb.collection(collName).deleteMany({});
+        }
+      }
+      send(res, 200, { ok: true, message: 'Database wiped successfully! You can now start posting fresh content.' });
       return;
     }
 

@@ -21,7 +21,9 @@ function normalizeRecord(record) {
 
 export async function getCollection(collection, fallback = []) {
   try {
-    const response = await fetch(apiUrl(`/api/${collection}`));
+    const response = await fetch(apiUrl(`/api/${collection}`), {
+      cache: 'no-store',
+    });
     if (!response.ok) throw new Error(`Failed to load ${collection}`);
     const data = await response.json();
     return Array.isArray(data) ? data.map(normalizeRecord) : fallback;
