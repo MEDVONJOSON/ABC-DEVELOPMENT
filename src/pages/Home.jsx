@@ -103,36 +103,36 @@ const missionItems = [
     id: 'vision',
     icon: Eye,
     title: 'VISION',
-    gradient: 'from-teal-500 to-emerald-600',
-    cardBg: 'bg-emerald-100',
-    cardBorder: 'border-emerald-200',
-    iconBg: 'bg-white text-teal-700 border border-teal-300',
-    titleColor: 'text-teal-800',
-    textColor: 'text-teal-900/80',
+    gradient: 'from-emerald-400 to-teal-500',
+    cardBg: 'bg-emerald-50',
+    cardBorder: 'border-emerald-400',
+    iconBg: 'bg-white text-emerald-600 border-2 border-emerald-400',
+    titleColor: 'text-emerald-800',
+    textColor: 'text-emerald-950/80',
     text: 'We envisage a nation of inclusive and participatory governance providing equal opportunities for all citizens irrespective of ethnic group, region, gender, age, political and religious affiliations.',
   },
   {
     id: 'mission',
     icon: Target,
     title: 'MISSION',
-    gradient: 'from-amber-400 to-yellow-500',
-    cardBg: 'bg-amber-100',
-    cardBorder: 'border-amber-200',
-    iconBg: 'bg-white text-amber-700 border border-amber-300',
-    titleColor: 'text-amber-800',
-    textColor: 'text-amber-900/80',
+    gradient: 'from-amber-400 to-orange-500',
+    cardBg: 'bg-amber-50',
+    cardBorder: 'border-amber-400',
+    iconBg: 'bg-white text-amber-600 border-2 border-amber-400',
+    titleColor: 'text-amber-900',
+    textColor: 'text-amber-950/80',
     text: 'The Mission of ABC-DEVELOPMENT is to promote, support and enhance the process of Development and Community Well-being through awareness raising and capacity building of members of communities to enhance their participation in the social, economic and political processes of their communities.',
   },
   {
     id: 'value',
     icon: Heart,
     title: 'CORE VALUE',
-    gradient: 'from-sky-400 to-cyan-500',
-    cardBg: 'bg-sky-100',
-    cardBorder: 'border-sky-200',
-    iconBg: 'bg-white text-sky-700 border border-sky-300',
-    titleColor: 'text-sky-800',
-    textColor: 'text-sky-900/80',
+    gradient: 'from-sky-400 to-blue-500',
+    cardBg: 'bg-sky-50',
+    cardBorder: 'border-sky-400',
+    iconBg: 'bg-white text-sky-600 border-2 border-sky-400',
+    titleColor: 'text-sky-900',
+    textColor: 'text-sky-950/80',
     text: 'We firmly believe that poverty is not an inescapable trap, and that development, poverty reduction and the promotion of community wellbeing depend mostly on accountable, transparent and inclusive policies and practices that empower and build the capacities of Civil Society Organizations and Community Groups to actively participate in the social, economic and political processes of their communities without any restriction based on gender, age, religious and political affiliation.',
   },
 ];
@@ -276,9 +276,9 @@ export default function Home() {
                       key={item.id}
                       className="w-full shrink-0 px-2"
                     >
-                      <div className={`relative flex items-start gap-6 p-8 rounded-2xl border ${item.cardBorder} ${item.cardBg} overflow-hidden group hover:shadow-2xl transition-all duration-300 ease-out`}>
+                      <div className={`relative flex items-start gap-6 p-8 rounded-2xl border-2 ${item.cardBorder} ${item.cardBg} overflow-hidden group hover:shadow-2xl transition-all duration-300 ease-out`}>
                         {/* Left gradient accent bar */}
-                        <div className={`absolute top-0 bottom-0 left-0 w-[5px] bg-gradient-to-b ${item.gradient}`} />
+                        <div className={`absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-b ${item.gradient}`} />
 
                         {/* Icon */}
                         <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 shadow-sm ${item.iconBg} transition-all duration-300 group-hover:scale-110 group-hover:rotate-[8deg]`}>
