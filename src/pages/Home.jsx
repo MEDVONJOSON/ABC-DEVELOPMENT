@@ -324,10 +324,10 @@ export default function Home() {
               <button
                 key={item.id}
                 onClick={() => setCurrentMission(idx)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-all duration-300 ${
                   idx === currentMission
-                    ? `w-9 bg-gradient-to-r ${item.gradient}`
-                    : 'w-2.5 bg-slate-300 hover:bg-slate-400'
+                    ? `w-12 h-3.5 bg-gradient-to-r ${item.gradient}`
+                    : 'w-3.5 h-3.5 bg-slate-300 hover:bg-slate-400'
                 }`}
                 aria-label={`Go to ${item.title}`}
               />

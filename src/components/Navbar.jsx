@@ -28,6 +28,8 @@ export default function Navbar() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const [navProgress, setNavProgress] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
@@ -44,6 +46,23 @@ export default function Navbar() {
   useEffect(() => {
     setOpen(false);
     setAboutOpen(false);
+
+    // Trigger loading effect on route change
+    setIsNavigating(true);
+    setNavProgress(30);
+
+    const t1 = setTimeout(() => setNavProgress(70), 150);
+    const t2 = setTimeout(() => setNavProgress(100), 400);
+    const t3 = setTimeout(() => {
+      setIsNavigating(false);
+      setTimeout(() => setNavProgress(0), 200);
+    }, 600);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
   }, [location.pathname]);
 
   const aboutActive = aboutLinks.some((link) => link.to === location.pathname);
@@ -60,6 +79,14 @@ export default function Navbar() {
       <div
         className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-emerald-500 via-teal-400 to-sky-500 transition-all duration-150 z-50"
         style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
+      {/* Navigation loading bar */}
+      <div
+        className={`absolute top-0 left-0 h-[3px] bg-sky-500 shadow-[0_0_10px_#0ea5e9] z-[60] transition-all duration-200 ease-out ${
+          isNavigating ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{ width: `${navProgress}%` }}
         aria-hidden="true"
       />
       <div className="container-page flex items-center justify-between h-16 md:h-20">
