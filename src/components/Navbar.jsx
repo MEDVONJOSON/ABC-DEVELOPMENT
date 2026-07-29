@@ -1,6 +1,7 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, MapPin, Mail, Phone } from 'lucide-react';
+import { siteInfo } from '../data/site.js';
 
 const links = [
   { to: '/', label: 'Home' },
@@ -89,6 +90,37 @@ export default function Navbar() {
         style={{ width: `${navProgress}%` }}
         aria-hidden="true"
       />
+      {/* Top Contact Bar */}
+      <div className={`hidden lg:block bg-[#0a1628] text-slate-300 text-xs w-full transition-all duration-300 overflow-hidden origin-top ${scrolled ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'}`}>
+        <div className="container-page flex justify-between items-center py-2.5">
+          <div className="flex gap-6">
+            <div className="flex items-center gap-2">
+              <Mail size={13} className="text-sky-400" />
+              <div className="flex gap-3">
+                {siteInfo.emails.map((contact) => (
+                  <a key={contact.address} href={`mailto:${contact.address}`} className="hover:text-white transition-colors">
+                    {contact.address}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone size={13} className="text-amber-400" />
+              <div className="flex gap-3">
+                {siteInfo.phones.map((phone) => (
+                  <a key={phone} href={`tel:${phone.replace(/\s/g, '')}`} className="hover:text-white transition-colors">
+                    {phone}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin size={13} className="text-emerald-400" />
+            <span>{siteInfo.address}</span>
+          </div>
+        </div>
+      </div>
       <div className="container-page flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center">
           <img
