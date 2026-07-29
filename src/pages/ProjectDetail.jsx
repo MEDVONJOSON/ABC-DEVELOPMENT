@@ -17,7 +17,7 @@ export default function ProjectDetail() {
     });
   }, []);
 
-  const project = projects.find((p) => p.slug === slug);
+  const project = projects.find((p) => p.slug === slug || String(p._id) === slug || String(p.id) === slug);
 
   if (isLoading && !project) {
     return (

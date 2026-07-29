@@ -12,7 +12,7 @@ export default function NewsCard({ article, compact = false }) {
   const cat = categories.find((c) => c.id === article.category);
   return (
     <Link
-      to={`/news/${article.slug}`}
+      to={`/news/${article.slug || article._id || article.id}`}
       className={`card group hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ${compact ? '' : 'h-full flex flex-col'}`}
     >
       <div className="aspect-[16/9] overflow-hidden">

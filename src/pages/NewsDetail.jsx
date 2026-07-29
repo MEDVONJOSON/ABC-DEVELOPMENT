@@ -27,7 +27,7 @@ export default function NewsDetail() {
     });
   }, []);
 
-  const article = articles.find((a) => a.slug === slug);
+  const article = articles.find((a) => a.slug === slug || String(a._id) === slug || String(a.id) === slug);
 
   if (isLoading && !article) {
     return (

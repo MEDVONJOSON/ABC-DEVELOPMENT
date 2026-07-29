@@ -52,7 +52,7 @@ export default function ProjectCard({ project }) {
 
   return (
     <Link
-      to={`/projects/${project.slug}`}
+      to={`/projects/${project.slug || project._id || project.id}`}
       className={`card relative group border border-slate-200/80 border-b-4 ${style.cardBorder} hover:-translate-y-2 hover:shadow-2xl ${style.cardHoverShadow} transition-all duration-300 ease-out`}
     >
       {/* Decorative Top Accent Line (Coloring & Thickening) */}

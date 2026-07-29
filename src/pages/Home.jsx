@@ -430,7 +430,7 @@ export default function Home() {
                                  <img src={p.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                </div>
                                <div>
-                                 <Link to={`/projects/${p.slug}`} className="font-semibold text-slate-800 hover:text-brand-600 text-[15px] leading-tight line-clamp-1">{p.title}</Link>
+                                 <Link to={`/projects/${p.slug || p._id || p.id}`} className="font-semibold text-slate-800 hover:text-brand-600 text-[15px] leading-tight line-clamp-1">{p.title}</Link>
                                  <p className="text-xs text-slate-500 mt-1 line-clamp-1">{p.summary}</p>
                                </div>
                              </div>
@@ -468,7 +468,7 @@ export default function Home() {
                     return (
                       <li key={p.id}>
                         <Link
-                          to={`/projects/${p.slug}`}
+                          to={`/projects/${p.slug || p._id || p.id}`}
                           className="flex items-start gap-3 group p-2 -mx-2 rounded-xl hover:bg-slate-50 transition-colors"
                         >
                           {/* Small Icon Container with subtle animation & theme color */}
@@ -693,7 +693,7 @@ export default function Home() {
               return (
                 <Link
                   key={a.id}
-                  to={`/news/${a.slug}`}
+                  to={`/news/${a.slug || a._id || a.id}`}
                   className={`card relative flex flex-col group border border-slate-200/80 bg-white hover:-translate-y-2 hover:shadow-2xl ${style.shadow} transition-all duration-300 ease-out overflow-hidden`}
                 >
                   {/* Top gradient accent bar */}
