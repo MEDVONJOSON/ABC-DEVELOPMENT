@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 const links = [
@@ -27,12 +27,17 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
+    };
     onScroll();
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -45,10 +50,18 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-all ${
-        scrolled ? 'bg-white/95 backdrop-blur shadow-sm' : 'bg-white'
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100'
+          : 'bg-white'
       }`}
     >
+      {/* Scroll progress bar */}
+      <div
+        className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-emerald-500 via-teal-400 to-sky-500 transition-all duration-150 z-50"
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
       <div className="container-page flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center">
           <img
@@ -116,7 +129,14 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Link to="/get-involved#volunteer" className="btn-primary text-sm">
+          <Link
+            to="/get-involved#volunteer"
+            className="btn-primary text-sm relative overflow-hidden"
+            style={{
+              boxShadow: '0 0 0 0 rgba(46,125,50,0.7)',
+              animation: 'volunteerGlow 2.5s ease-in-out infinite',
+            }}
+          >
             Volunteer
           </Link>
         </div>

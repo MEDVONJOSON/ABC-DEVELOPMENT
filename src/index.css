@@ -83,3 +83,91 @@
     --slide-shift: 25%;
   }
 }
+
+/* ==== Design System Enhancements ==== */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600&display=swap');
+
+/* Base typography */
+html {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Utility classes */
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+  border-radius: 1rem;
+}
+
+/* Scroll indicator (bounce arrow) */
+.scroll-indicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+}
+
+/* Sticky Donate CTA */
+.sticky-donate {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  background-color: #1b5e20;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(27, 94, 32, 0.45);
+  animation: donatePulse 2s ease-in-out infinite;
+}
+.sticky-donate:hover {
+  background-color: #145214;
+  transform: scale(1.05);
+}
+@keyframes donatePulse {
+  0%, 100% { transform: scale(1);   box-shadow: 0 4px 20px rgba(27,94,32,0.45); }
+  50%       { transform: scale(1.08); box-shadow: 0 8px 30px rgba(27,94,32,0.65); }
+}
+@keyframes volunteerGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(46,125,50,0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(46,125,50,0); }
+}

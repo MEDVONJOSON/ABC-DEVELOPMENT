@@ -13,6 +13,7 @@ import {
   Quote,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Heart,
   Newspaper,
   Calendar
@@ -244,10 +245,15 @@ export default function Home() {
             <ChevronRight size={24} />
           </button>
         </div>
+
+        {/* Scroll-down indicator */}
+        <div className="scroll-indicator z-20">
+          <ChevronDown size={32} className="text-white/80" aria-label="Scroll down" />
+        </div>
       </section>
 
       {/* MISSION / VISION / CORE VALUE — Horizontal Sliding Carousel */}
-      <section className="section bg-slate-50 overflow-hidden">
+      <section className="section bg-slate-50 overflow-hidden animate-fadeInUp">
         <div className="container-page">
           <SectionHeader
             eyebrow="Who We Are"
@@ -537,7 +543,7 @@ export default function Home() {
 
 
       {/* KEY ACHIEVEMENTS */}
-      <section className="section bg-white">
+      <section className="section bg-white animate-fadeInUp">
         <div className="container-page">
           <SectionHeader
             eyebrow="Key Achievements"
@@ -772,6 +778,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Sticky pulsing Donate CTA */}
+      <Link to="/get-involved#donate" className="sticky-donate" aria-label="Donate now">
+        ❤ Donate
+      </Link>
     </>
   );
 }
