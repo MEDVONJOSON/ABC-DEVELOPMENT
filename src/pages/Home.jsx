@@ -21,9 +21,9 @@ import SectionHeader from '../components/SectionHeader.jsx';
 import Stats from '../components/Stats.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
 import NewsCard from '../components/NewsCard.jsx';
-import { categories, projects } from '../data/projects.js';
-import { news } from '../data/news.js';
+import { categories } from '../data/projects.js';
 import { testimonials, partners, donationTiers } from '../data/site.js';
+import { getCollection } from '../lib/api.js';
 
 const iconMap = {
   GraduationCap, HeartPulse, Users, Sprout, Scale, Trees,
@@ -137,8 +137,14 @@ const missionItems = [
 ];
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
-  const latestNews = news.slice(0, 3);
+  const [allProjects, setAllProjects] = useState([]);
+  const [latestNews, setLatestNews] = useState([]);
+  const featuredProjects = allProjects.slice(0, 3);
+
+  useEffect(() => {
+    getCollection('projects').then(data => setAllProjects(data));
+    getCollection('news').then(data => setLatestNews(data.slice(0, 3)));
+  }, []);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentMission, setCurrentMission] = useState(0);
@@ -388,10 +394,11 @@ export default function Home() {
               {categories.map((c) => {
                 const Icon = iconMap[c.icon] || Users;
                 const style = categoryStyles[c.id] || categoryStyles.education;
+                const categoryProjects = allProjects.filter(p => p.category === c.id);
                 return (
                   <div 
                     key={c.id} 
-                    className={`card relative p-6 pl-8 flex gap-5 group border border-slate-200/80 bg-white ${style.cardHoverBg} hover:-translate-y-1 hover:shadow-2xl ${style.cardHoverShadow} transition-all duration-300 ease-out overflow-hidden`}
+                    className={`card relative p-6 pl-8 flex flex-col md:flex-row gap-5 group border border-slate-200/80 bg-white ${style.cardHoverBg} hover:-translate-y-1 hover:shadow-2xl ${style.cardHoverShadow} transition-all duration-300 ease-out overflow-hidden`}
                   >
                     {/* Decorative Left Accent Bar (Coloring & Thickening) */}
                     <div className={`absolute top-0 bottom-0 left-0 w-[5px] bg-gradient-to-b ${style.gradient}`} />
@@ -401,18 +408,37 @@ export default function Home() {
                       <Icon size={26} className="transition-colors duration-300" />
                     </div>
                     
-                    <div>
+                    <div className="flex-1">
                       <h3 className="font-display font-bold text-2xl text-slate-800 group-hover:text-slate-900 transition-colors mb-2 leading-tight">
                         {c.name}
                       </h3>
-                      <p className="text-slate-600 text-sm leading-relaxed font-normal">
+                      <p className="text-slate-600 text-sm leading-relaxed font-normal mb-4">
                         {c.description}
                       </p>
+
+                      <div className="space-y-4 mt-5 border-t border-slate-100 pt-5">
+                        {categoryProjects.length > 0 ? (
+                           categoryProjects.slice(0, 2).map(p => (
+                             <div key={p.id} className="flex gap-4 items-start bg-white/50 p-3 rounded-xl border border-slate-100 hover:border-slate-200 transition-colors">
+                               <div className="w-20 h-14 shrink-0 overflow-hidden rounded-lg">
+                                 <img src={p.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                               </div>
+                               <div>
+                                 <Link to={`/projects/${p.slug}`} className="font-semibold text-slate-800 hover:text-brand-600 text-[15px] leading-tight line-clamp-1">{p.title}</Link>
+                                 <p className="text-xs text-slate-500 mt-1 line-clamp-1">{p.summary}</p>
+                               </div>
+                             </div>
+                           ))
+                        ) : (
+                           <p className="text-xs text-slate-400 italic px-2">No projects posted for this category yet.</p>
+                        )}
+                      </div>
+
                       <Link
                         to={`/projects?category=${c.id}`}
-                        className={`inline-flex items-center gap-1.5 mt-4 text-sm font-semibold ${style.textBrand} transition-colors group-hover:gap-2`}
+                        className={`inline-flex items-center gap-1.5 mt-5 text-sm font-semibold ${style.textBrand} transition-colors group-hover:gap-2`}
                       >
-                        <span className="group-hover:underline">Read Details</span>
+                        <span className="group-hover:underline">View All {c.name} Projects</span>
                         <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
                       </Link>
                     </div>
@@ -429,29 +455,33 @@ export default function Home() {
                   Recent Success Stories
                 </h4>
                 <ul className="space-y-4">
-                  {categories.slice(0, 3).map((c) => {
+                  {allProjects.slice(0, 5).map((p) => {
+                    const c = categories.find(cat => cat.id === p.category) || categories[0];
                     const Icon = iconMap[c.icon] || Users;
                     const style = categoryStyles[c.id] || categoryStyles.education;
                     return (
-                      <li key={c.id}>
+                      <li key={p.id}>
                         <Link
-                          to={`/projects?category=${c.id}`}
-                          className="flex items-center gap-3 group p-1.5 rounded-xl hover:bg-slate-50 transition-colors"
+                          to={`/projects/${p.slug}`}
+                          className="flex items-start gap-3 group p-2 -mx-2 rounded-xl hover:bg-slate-50 transition-colors"
                         >
                           {/* Small Icon Container with subtle animation & theme color */}
-                          <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 shadow-sm ${style.iconContainer} bg-gradient-to-br transition-all duration-300 group-hover:scale-105`}>
+                          <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 shadow-sm mt-1 ${style.iconContainer} bg-gradient-to-br transition-all duration-300 group-hover:scale-105`}>
                             <Icon size={18} />
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-slate-800 group-hover:text-slate-900 transition-colors leading-tight">
-                              {c.name}
+                            <div className="text-sm font-semibold text-slate-800 group-hover:text-brand-600 transition-colors leading-snug line-clamp-2">
+                              {p.title}
                             </div>
-                            <div className="text-xs text-slate-400 mt-0.5">Mon Nov 2023</div>
+                            <div className="text-xs text-slate-400 mt-1 capitalize">{c.name}</div>
                           </div>
                         </Link>
                       </li>
                     );
                   })}
+                  {allProjects.length === 0 && (
+                    <li className="text-xs text-slate-400 italic">No recent projects.</li>
+                  )}
                 </ul>
               </div>
 
