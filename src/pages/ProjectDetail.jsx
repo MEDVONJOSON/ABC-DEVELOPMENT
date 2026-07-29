@@ -8,12 +8,27 @@ import { getCollection } from '../lib/api.js';
 export default function ProjectDetail() {
   const { slug } = useParams();
   const [projects, setProjects] = useState(projectSeed);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getCollection('projects', projectSeed).then(setProjects);
+    getCollection('projects', projectSeed).then((data) => {
+      setProjects(data);
+      setIsLoading(false);
+    });
   }, []);
 
   const project = projects.find((p) => p.slug === slug);
+
+  if (isLoading && !project) {
+    return (
+      <section className="section py-32">
+        <div className="container-page text-center flex flex-col items-center justify-center">
+          <div className="w-10 h-10 border-4 border-slate-200 border-t-brand-600 rounded-full animate-spin mb-4"></div>
+          <p className="text-slate-500 font-medium">Loading project...</p>
+        </div>
+      </section>
+    );
+  }
 
   if (!project) {
     return (

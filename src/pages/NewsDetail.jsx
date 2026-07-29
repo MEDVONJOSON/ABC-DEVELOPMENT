@@ -15,15 +15,30 @@ function formatDate(d) {
 export default function NewsDetail() {
   const { slug } = useParams();
   const [articles, setArticles] = useState(newsSeed);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       getCollection('news', newsSeed),
       getCollection('blogs', []),
-    ]).then(([news, blogs]) => setArticles([...blogs, ...news]));
+    ]).then(([news, blogs]) => {
+      setArticles([...blogs, ...news]);
+      setIsLoading(false);
+    });
   }, []);
 
   const article = articles.find((a) => a.slug === slug);
+
+  if (isLoading && !article) {
+    return (
+      <section className="section py-32">
+        <div className="container-page text-center flex flex-col items-center justify-center">
+          <div className="w-10 h-10 border-4 border-slate-200 border-t-brand-600 rounded-full animate-spin mb-4"></div>
+          <p className="text-slate-500 font-medium">Loading article...</p>
+        </div>
+      </section>
+    );
+  }
 
   if (!article) {
     return (
