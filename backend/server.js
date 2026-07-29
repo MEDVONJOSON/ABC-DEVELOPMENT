@@ -391,17 +391,7 @@ createServer(async (req, res) => {
       return;
     }
 
-    if (url.pathname === '/api/nuke-database') {
-      if (mongoUri) {
-        await connectMongo();
-        const collectionsToClear = ['projects', 'news', 'blogs', 'resources'];
-        for (const collName of collectionsToClear) {
-          await mongoDb.collection(collName).deleteMany({});
-        }
-      }
-      send(res, 200, { ok: true, message: 'Database wiped successfully! You can now start posting fresh content.' });
-      return;
-    }
+
 
     if (url.pathname.startsWith('/api/')) {
       await handleApi(req, res, url.pathname);
