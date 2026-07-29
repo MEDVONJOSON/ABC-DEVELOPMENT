@@ -2,7 +2,7 @@
 
 export const siteInfo = {
   name: 'ABC-Development-SL',
-  tagline: 'Empowering Communities in Sierra Leone',
+  tagline: 'Kambia Communities in Sierra Leone',
   mission:
     'To catalyze sustainable community development in Sierra Leone by empowering individuals and communities with the knowledge, skills, and resources needed to build prosperous, healthy, and equitable societies.',
   vision:
